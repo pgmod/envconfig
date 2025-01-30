@@ -42,6 +42,14 @@ func Get(key, defaultValue string) string {
 	}
 	return defaultValue
 }
+func GetBool(key string, defaultValue bool) bool {
+	value := Get(key, strconv.FormatBool(defaultValue))
+	if b, err := strconv.ParseBool(value); err == nil {
+		return b
+	}
+
+	return defaultValue
+}
 
 func GetInt(key string, defaultValue int) int {
 	if value := os.Getenv(key); value != "" {
