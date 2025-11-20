@@ -31,8 +31,8 @@ func ToList(value string, separator string) ([]string, error) {
 		}
 	} else {
 		return strings.Split(
-			strings.ReplaceAll(value, "==", "\n"),
-			";"), nil
+			value,
+			separator), nil
 	}
 }
 
